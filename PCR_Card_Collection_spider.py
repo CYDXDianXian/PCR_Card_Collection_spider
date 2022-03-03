@@ -66,7 +66,7 @@ for url in urls:
                 # .content 拿到字节(二进制对象)
             except:
                 error_num += 1
-                print(f'第 {img_num} 个图片下载下载失败：{img_name}')
+                print(f'error! 第 {img_num} 个图片下载失败：{img_name}')
                 continue
             Path(path_config, img_name).write_bytes(img_data) # 以二进制方式写入文件
             success_num += 1
