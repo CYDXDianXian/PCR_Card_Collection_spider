@@ -42,7 +42,7 @@ for url in urls:
     except:
         print(f'第 {page_num} 页请求超时，请检查代理设置或网络连接')
         continue
-    resp.encodin = 'utf-8'
+    resp.encoding = 'utf-8'
     main_page = BeautifulSoup(resp.text, 'html.parser')
     alist = main_page.find('body').find('div', attrs={'id': 'gdt'}).find_all('a') # attrs表示标签属性，以字典形式输入
 
@@ -55,7 +55,7 @@ for url in urls:
             print(f'第 {img_num} 个图片页请求超时，请检查代理设置或网络连接')
             error_num += 1
             continue
-        img_resp.encodin = 'utf-8'
+        img_resp.encoding = 'utf-8'
         img_page = BeautifulSoup(img_resp.text, 'html.parser')
         img_src = img_page.find('body').find('div', attrs={'id': 'i3'}).find('img').get('src')
         img_name = img_src.split("/")[-1] # 以 / 为分割，将字符串拆分成一个列表，并读取倒数第一个值
